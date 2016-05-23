@@ -6,9 +6,9 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins:400,700&subset=latin,latin-ext' rel='stylesheet'
           type='text/css'>
     <link href="style/style.css" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
 </head>
-<body>
+<body ng-app="app">
 <div id="page">
     <header>
         <div id="logo">
@@ -72,16 +72,31 @@
                 <button id="reset">Reset</button>
             </div>
         </div>
-        <div id="map">
+        <div id="map" ng-controller="GameOfLifeController">
+
+            <table>
+                <tr ng-repeat="row in field track by $index">
+                    <td ng-repeat="cell in row track by $index">
+                        {{cell}}
+                    </td>
+                </tr>
+            </table>
+
+
+
 
         </div>
-        <div id="stats">
-
+        <div id="stats" >
+            {{val}}
         </div>
     </div>
     <footer>
 
     </footer>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="js/controllers.js"></script>
+
 </body>
 </html>
