@@ -1,36 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Conway's Game of Life</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins:400,700&subset=latin,latin-ext' rel='stylesheet'
           type='text/css'>
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="style/style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 </head>
 <body>
 <div id="page">
-<header>
-    <div id="logo">
-        Conway's Game of Life
+    <header>
+        <div id="logo">
+            Conway's Game of Life
+        </div>
+    </header>
+    <nav>
+
+    </nav>
+    <div id="content">
+        <div id="settings">
+
+            <div class="setup" id="tolife">
+                <p class="settingLabel">Number of neighbours needed to create life in a cell.</p>
+                <form>
+                    <section class="checkAndLabel"><input type="checkbox" name="life"/> <label>0</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="life"/> <label>1</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="life"/> <label>2</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="life" checked="checked"/> <label>3</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="life"/> <label>4</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="life"/> <label>5</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="life"/> <label>6</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="life"/> <label>7</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="life"/> <label>8</label></section>
+                    </br style="clear:both"/>
+                </form>
+            </div>
+            <div class="setup" id="todeath">
+                <p class="settingLabel">Number of neighbours needed to destroy life in a cell.</p>
+                <form>
+                    <section class="checkAndLabel"><input type="checkbox" name="death" checked="checked"/> <label>0</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="death" checked="checked"/> <label>1</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="death"/> <label>2</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="death"/> <label>3</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="death" checked="checked"/> <label>4</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="death" checked="checked"/> <label>5</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="death" checked="checked"/> <label>6</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="death" checked="checked"/> <label>7</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" name="death" checked="checked"/> <label>8</label></section>
+                    </br style="clear:both"/>
+                </form>
+            </div>
+            <div class="setup" id="timestep">
+                <p class="settingLabel">Timestep between successive generations.</p>
+
+                <form>
+                    <section class="checkAndLabel"><input type="radio" name="time"/> <label>0,2 s</label></section>
+                    <section class="checkAndLabel"><input type="radio" name="time"/> <label>0,4 s</label></section>
+                    <section class="checkAndLabel"><input type="radio" name="time" checked="checked"/> <label>0,6 s</label></section>
+                    <section class="checkAndLabel"><input type="radio" name="time"/> <label>0,8 s</label></section>
+                    <section class="checkAndLabel"><input type="radio" name="time"/> <label>1,0 s</label></section>
+                    </br style="clear:both"/>
+                </form>
+
+            </div>
+
+            <div id="buttons">
+                <button id="start">Start</button>
+                <button id="stop">Stop</button>
+                <button id="random">Random</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+        <div id="map">
+
+        </div>
+        <div id="stats">
+
+        </div>
     </div>
-</header>
-<nav>
+    <footer>
 
-</nav>
-<div id="content">
-    <div id="settings">
-
-    </div>
-    <div id="map">
-
-    </div>
-    <div id="stats">
-
-    </div>
-</div>
-<footer>
-
-</footer>
+    </footer>
 </div>
 </body>
 </html>

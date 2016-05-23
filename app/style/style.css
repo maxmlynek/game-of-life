@@ -1,0 +1,172 @@
+body{
+    background-color: #5A2A5B;
+    margin:0;
+    font-family: 'Poppins';
+}
+#page {
+    width:100%;
+}
+
+header{
+    min-height: 150px;
+    background-color: #49164A;
+    padding-top: 45px;
+}
+#logo{
+    margin: 0 auto;
+    text-align: center;
+    display:block;
+    font-size:48px;
+    width:600px;
+    font-weight: bold;
+    color: #0E000E;
+}
+nav{
+    /*background-color: #1F0120;*/
+    background-color: #0E000E;
+    min-height: 90px;
+}
+
+#content{
+    background-color: #330934;
+    min-height: 600px;
+}
+
+#settings{
+    background-color: #49164A;
+    min-height: 300px;
+}
+
+.setup{
+    float:left;
+    width:31%;
+    min-height: 150px;
+    border: 3px solid #0E000E;
+    border-radius:8px;
+    margin-top:45px;
+    display: block;
+    text-align: center;
+}
+
+
+
+form{
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+
+.settingLabel{
+    display:block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 30px;
+    padding-right:20px;
+    padding-left:20px;
+    font-size:18px;
+}
+
+
+label{
+    display:block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+input{
+    cursor:pointer;
+}
+
+.checkAndLabel{
+    margin-left:18px;
+    float:left;
+}
+
+
+#tolife{
+    margin-left:15px;
+}
+
+#todeath{
+    margin-left:15px;
+
+}
+
+#timestep{
+    margin-left:15px;
+    margin-right:10px;
+
+}
+
+#buttons{
+    clear:both;
+    width:100%;
+    min-height: 100px;
+    margin: 0 auto;
+    text-align: center;
+    display:block;
+    padding-top:50px;
+}
+
+button{
+    font-family:'Poppins';
+    font-size:21px;
+    padding:10px;
+    padding-left:15px;
+    padding-right:15px;
+    background-color:#0E000E;
+    color: navajowhite;
+    border:none;
+    border-radius: 15px;
+    cursor:pointer;
+    outline:none;
+}
+
+button:focus{
+    box-shadow: 0 0 0 2pt navajowhite;
+
+}
+
+
+#start{
+
+}
+#stop{
+    margin-left:200px;
+}
+#random{
+    margin-left:200px;
+}
+#reset{
+    margin-left:200px;
+}
+
+
+
+#map{
+    background-color: #5A2A5B;
+
+    min-height: 300px;
+}
+
+footer{
+    background-color: #330934;
+    min-height: 100px;
+}
+
+/*
+{
+    background-color: #5A2A5B
+;
+    background-color: #49164A
+;
+    background-color: #330934
+;
+    background-color: #1F0120
+;
+    background-color: #0E000E
+}
+*/
