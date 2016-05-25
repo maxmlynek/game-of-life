@@ -115,21 +115,23 @@ function GameOfLifeController($scope, $interval) {
     };
 
     $scope.randomizeField = function () {
-        cleaner();
-        var i, j;
-        for (i = 0; i < field.length; i++) {
-            for (j = 0; j < field[0].length; j++) {
-                if (Math.random() < 0.08) {
-                    if (field[i][j] == 0) {
-                        field[i][j] = 1;
-                    }
-                    else {
-                        field[i][j] = 0;
+        if(!isStarted) {
+            cleaner();
+            var i, j;
+            for (i = 0; i < field.length; i++) {
+                for (j = 0; j < field[0].length; j++) {
+                    if (Math.random() < 0.08) {
+                        if (field[i][j] == 0) {
+                            field[i][j] = 1;
+                        }
+                        else {
+                            field[i][j] = 0;
+                        }
                     }
                 }
             }
+            $scope.initializeGame();
         }
-        $scope.initializeGame();
     };
 
     $scope.resetField = function() {
@@ -143,6 +145,7 @@ function GameOfLifeController($scope, $interval) {
 
         $scope.initializeGame();
         isStarted = false;
+        $scope.isPaused = true;
     }
 
     $scope.initializeGame();

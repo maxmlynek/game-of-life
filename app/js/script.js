@@ -44,9 +44,6 @@ $(document).ready(function () {
                 if ($(this).css('background-color') == 'rgb(140, 140, 140)') {
                     $(this).css('background-color', 'darkgreen');
                     changeField($(this).text());
-                } else {
-                    $(this).css('background-color', '#8c8c8c');
-                    changeField($(this).text());
                 }
             }
 

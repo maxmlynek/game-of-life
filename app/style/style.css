@@ -155,7 +155,7 @@ button:focus{
 }
 
 table{
-    border-spacing: 2px;
+    border-spacing: 0px;
     margin-left:auto;
     margin-right:auto;
 }
@@ -166,6 +166,7 @@ td {
     height: 5px;
     cursor:pointer;
     font-size:0;
+    border: solid 1px #5A2A5B;
 }
 
 .lifeCell{
