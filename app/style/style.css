@@ -165,7 +165,7 @@ td {
     width: 5px;
     height: 5px;
     cursor:pointer;
-
+    font-size:0;
 }
 
 .lifeCell{
