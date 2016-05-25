@@ -18,7 +18,7 @@
     <nav>
 
     </nav>
-    <div id="content">
+    <div id="content"  ng-controller="GameOfLifeController">
         <div id="settings">
 
             <div class="setup" id="tolife">
@@ -72,12 +72,12 @@
                 <button id="reset">Reset</button>
             </div>
         </div>
-        <div id="map" ng-controller="GameOfLifeController">
+        <div id="map">
 
             <table>
                 <tr ng-repeat="row in field track by $index">
                     <td ng-repeat="cell in row track by $index">
-                        {{cell}}
+                         {{cell}}
                     </td>
                 </tr>
             </table>
@@ -97,6 +97,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 <script src="js/controllers.js"></script>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
