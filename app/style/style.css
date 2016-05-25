@@ -168,9 +168,21 @@ td {
 
 }
 
-.clicked {
-    background-color: olivedrab;
+.lifeCell{
+    background-color: darkgreen;
+    width: 5px;
+    height: 5px;
+    cursor:pointer;
 }
+
+.deadCell{
+    background-color: #8c8c8c;
+    width: 5px;
+    height: 5px;
+    cursor:pointer;
+}
+
+
 
 
 footer{
