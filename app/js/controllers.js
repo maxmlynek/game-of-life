@@ -103,7 +103,7 @@ function GameOfLifeController($scope, $interval) {
                                 if ($scope.lifeArray[countingArray[i][j]] == true) {
                                     field[i][j] = 1;
                                 }
-                            } else if (field[i][j] == 1) {
+                            } else {
                                 lifeCounter++;
                                 if ($scope.deathArray[countingArray[i][j]] == true) {
                                     field[i][j] = 0;
