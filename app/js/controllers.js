@@ -49,7 +49,7 @@ function GameOfLifeController($scope, $interval) {
     $scope.livingCells = 0;
     $scope.bestGen = 0;
     $scope.bestLiv = 0;
-
+    $scope.formerLifeCounter = 0;
 
     $scope.isPaused = false;
     $scope.lifeArray = [false, false, false,
@@ -76,11 +76,10 @@ function GameOfLifeController($scope, $interval) {
 
         isStarted = true;
         $scope.isPaused = false;
-        var formerLifeCounter = 0;
         var a,b;
         for (a = 0; a < countingArray.length; a++) {
             for (b = 0; b < countingArray[0].length; b++) {
-                formerLifeCounter+=field[a][b];
+                $scope.formerLifeCounter+=field[a][b];
             }
         }
         $interval(function () {
@@ -116,12 +115,12 @@ function GameOfLifeController($scope, $interval) {
                     cleaner();
                     $scope.initializeGame();
 
-                    $scope.livingCells = formerLifeCounter;
+                    $scope.livingCells = $scope.formerLifeCounter;
                     if ($scope.livingCells > $scope.bestLiv) {
                         $scope.bestLiv = $scope.livingCells;
                         $scope.bestGen = $scope.generation;
                     }
-                    formerLifeCounter = lifeCounter;
+                    $scope.formerLifeCounter = lifeCounter;
                 }
 
 
@@ -186,7 +185,7 @@ function GameOfLifeController($scope, $interval) {
         $scope.livingCells = 0;
         $scope.bestGen = 0;
         $scope.bestLiv = 0;
-
+        $scope.formerLifeCounter = 0;
     }
 
 
