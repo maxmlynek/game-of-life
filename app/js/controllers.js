@@ -164,7 +164,7 @@ function GameOfLifeController($scope, $interval) {
         $scope.livingCells = 0;
         $scope.bestGen = 0;
         $scope.bestLiv = 0;
-
+        $scope.formerLifeCounter = 0;
     };
 
     $scope.resetField = function () {
