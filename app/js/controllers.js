@@ -17,11 +17,11 @@ for (var i = 0; i < countingArray.length; i++) {
     countingArray[i] = countingArrayRow.slice();
 }
 
-var cleaner = function(){
+var cleaner = function () {
     $('td').removeAttr('style');
 }
 
-var countNeighbours = function(row, col){
+var countNeighbours = function (row, col) {
     //Michael Laszlo algorithm
     var count = 0;
     for (var i = row - 1; i <= row + 1; i++) {
@@ -35,10 +35,9 @@ var countNeighbours = function(row, col){
     return count;
 }
 
-var validateArrays = function(){ //validate if lifeArray and deathArray are distinct
+var validateArrays = function () { //validate if lifeArray and deathArray are distinct
     return true;
 }
-
 
 
 //Controller
@@ -46,35 +45,52 @@ var validateArrays = function(){ //validate if lifeArray and deathArray are dist
 
 function GameOfLifeController($scope, $interval) {
 
-    $scope.isPaused =false;
-    $scope.lifeArray = [ false, false, false,
-                        true, false, false,
-                        false, false, false];
+    $scope.generation = 0;
+    $scope.livingCells = 0;
+    $scope.bestGen = 0;
+    $scope.bestLiv = 0;
 
-    $scope.deathArray= [ true, true, false,
-                     false, true, true,
-                        true, true, true];
+
+    $scope.isPaused = false;
+    $scope.lifeArray = [false, false, false,
+        true, false, false,
+        false, false, false];
+
+    $scope.deathArray = [true, true, false,
+        false, true, true,
+        true, true, true];
 
     $scope.timeSet = {
         time: 'c'
     }
 
-    $scope.countTime = function(){
-        if($scope.timeSet.time == 'a') return 200;
-        if($scope.timeSet.time == 'b') return 400;
-        if($scope.timeSet.time == 'c') return 600;
-        if($scope.timeSet.time == 'd') return 800;
-        if($scope.timeSet.time == 'e') return 1000;
+    $scope.countTime = function () {
+        if ($scope.timeSet.time == 'a') return 400;
+        if ($scope.timeSet.time == 'b') return 800;
+        if ($scope.timeSet.time == 'c') return 1200;
+        if ($scope.timeSet.time == 'd') return 1600;
+        if ($scope.timeSet.time == 'e') return 2000;
     }
 
-    $scope.startGame = function(){
+    $scope.startGame = function () {
 
         isStarted = true;
         $scope.isPaused = false;
+        var formerLifeCounter = 0;
+        var a,b;
+        for (a = 0; a < countingArray.length; a++) {
+            for (b = 0; b < countingArray[0].length; b++) {
+                formerLifeCounter+=field[a][b];
+            }
+        }
+        $interval(function () {
 
-        $interval( function() {
 
-                if(!$scope.isPaused) {
+                if (!$scope.isPaused) {
+
+                    var lifeCounter = 0;
+                    $scope.generation++;
+
                     validateArrays()//for every iteration!
                     var i, j;
                     for (i = 0; i < countingArray.length; i++) {
@@ -85,27 +101,39 @@ function GameOfLifeController($scope, $interval) {
 
                     for (i = 0; i < field.length; i++) {
                         for (j = 0; j < field[0].length; j++) {
-                            if ($scope.lifeArray[countingArray[i][j]] == true) {
-                                field[i][j] = 1;
-                            } else if ($scope.deathArray[countingArray[i][j]] == true) {
-                                field[i][j] = 0;
+                            if (field[i][j] == 0) {
+                                if ($scope.lifeArray[countingArray[i][j]] == true) {
+                                    field[i][j] = 1;
+                                }
+                            } else if (field[i][j] == 1) {
+                                lifeCounter++;
+                                if ($scope.deathArray[countingArray[i][j]] == true) {
+                                    field[i][j] = 0;
+                                }
                             }
-
                         }
                     }
                     cleaner();
                     $scope.initializeGame();
+
+                    $scope.livingCells = formerLifeCounter;
+                    if ($scope.livingCells > $scope.bestLiv) {
+                        $scope.bestLiv = $scope.livingCells;
+                        $scope.bestGen = $scope.generation;
+                    }
+                    formerLifeCounter = lifeCounter;
                 }
+
+
             },
 
             $scope.countTime()
-
         );
 
 
     };
 
-    $scope.stopGame = function(){
+    $scope.stopGame = function () {
         $scope.isPaused = true;
     };
 
@@ -115,7 +143,7 @@ function GameOfLifeController($scope, $interval) {
     };
 
     $scope.randomizeField = function () {
-        if(!isStarted) {
+        if (!isStarted) {
             cleaner();
             var i, j;
             for (i = 0; i < field.length; i++) {
@@ -132,9 +160,15 @@ function GameOfLifeController($scope, $interval) {
             }
             $scope.initializeGame();
         }
+
+        $scope.generation = 0;
+        $scope.livingCells = 0;
+        $scope.bestGen = 0;
+        $scope.bestLiv = 0;
+
     };
 
-    $scope.resetField = function() {
+    $scope.resetField = function () {
         cleaner();
         var i, j;
         for (i = 0; i < field.length; i++) {
@@ -146,7 +180,15 @@ function GameOfLifeController($scope, $interval) {
         $scope.initializeGame();
         isStarted = false;
         $scope.isPaused = true;
+
+
+        $scope.generation = 0;
+        $scope.livingCells = 0;
+        $scope.bestGen = 0;
+        $scope.bestLiv = 0;
+
     }
+
 
     $scope.initializeGame();
 }

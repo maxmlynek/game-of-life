@@ -8,6 +8,11 @@ body{
     min-width: 1200px;
 }
 
+a {
+    text-decoration: none;
+}
+
+
 header{
     min-height: 150px;
     background-color: #49164A;
@@ -183,7 +188,18 @@ td {
     cursor:pointer;
 }
 
+#stats{
+    padding-top:40px;
+    background-color: #5A2A5B;
+    min-height: 80px;
+}
 
+.statistic{
+    float:left;
+    color:navajowhite;
+    text-align: center;
+    width: 33%;
+}
 
 
 footer{

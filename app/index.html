@@ -11,56 +11,81 @@
 <body ng-app="app">
 <div id="page">
     <header>
-        <div id="logo">
-            Conway's Game of Life
-        </div>
+        <a href="index.html">
+            <div id="logo">
+                Conway's Game of Life
+            </div>
+        </a>
     </header>
     <nav>
 
     </nav>
-    <div id="content"  ng-controller="GameOfLifeController">
+    <div id="content" ng-controller="GameOfLifeController">
         <div id="settings">
 
             <div class="setup" id="tolife">
                 <p class="settingLabel">Number of neighbours needed to create life in a cell.</p>
                 <form>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[0]" name="life"/> <label>0</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[1]" name="life"/> <label>1</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[2]" name="life"/> <label>2</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[3]" name="life" checked="checked"/> <label>3</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[4]" name="life"/> <label>4</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[5]" name="life"/> <label>5</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[6]" name="life"/> <label>6</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[7]" name="life"/> <label>7</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[8]" name="life"/> <label>8</label></section>
-                    </br style="clear:both"/>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[0]" name="life"/>
+                        <label>0</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[1]" name="life"/>
+                        <label>1</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[2]" name="life"/>
+                        <label>2</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[3]" name="life"
+                                                          checked="checked"/> <label>3</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[4]" name="life"/>
+                        <label>4</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[5]" name="life"/>
+                        <label>5</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[6]" name="life"/>
+                        <label>6</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[7]" name="life"/>
+                        <label>7</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="lifeArray[8]" name="life"/>
+                        <label>8</label></section>
+                    </br style="clear: both"/>
                 </form>
             </div>
             <div class="setup" id="todeath">
                 <p class="settingLabel">Number of neighbours needed to destroy life in a cell.</p>
                 <form>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[0]" name="death" checked="checked"/> <label>0</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[1]" name="death" checked="checked"/> <label>1</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[2]" name="death"/> <label>2</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[3]" name="death"/> <label>3</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[4]" name="death" checked="checked"/> <label>4</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[5]" name="death" checked="checked"/> <label>5</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[6]" name="death" checked="checked"/> <label>6</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[7]" name="death" checked="checked"/> <label>7</label></section>
-                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[8]" name="death" checked="checked"/> <label>8</label></section>
-                    </br style="clear:both"/>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[0]" name="death"
+                                                          checked="checked"/> <label>0</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[1]" name="death"
+                                                          checked="checked"/> <label>1</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[2]" name="death"/>
+                        <label>2</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[3]" name="death"/>
+                        <label>3</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[4]" name="death"
+                                                          checked="checked"/> <label>4</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[5]" name="death"
+                                                          checked="checked"/> <label>5</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[6]" name="death"
+                                                          checked="checked"/> <label>6</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[7]" name="death"
+                                                          checked="checked"/> <label>7</label></section>
+                    <section class="checkAndLabel"><input type="checkbox" ng-model="deathArray[8]" name="death"
+                                                          checked="checked"/> <label>8</label></section>
+                    </br style="clear: both"/>
                 </form>
             </div>
             <div class="setup" id="timestep">
                 <p class="settingLabel">Timestep between successive generations.</p>
 
                 <form>
-                    <section class="checkAndLabel"><input type="radio" ng-model="timeSet.time" value="a" name="time"/> <label>0,2 s</label></section>
-                    <section class="checkAndLabel"><input type="radio" ng-model="timeSet.time" value="b" name="time"/> <label>0,4 s</label></section>
-                    <section class="checkAndLabel"><input type="radio" ng-model="timeSet.time" value="c" name="time"/> <label>0,6 s</label></section>
-                    <section class="checkAndLabel"><input type="radio" ng-model="timeSet.time" value="d" name="time"/> <label>0,8 s</label></section>
-                    <section class="checkAndLabel"><input type="radio" ng-model="timeSet.time" value="e" name="time"/> <label>1,0 s</label></section>
-                    </br style="clear:both"/>
+                    <section class="checkAndLabel"><input type="radio" ng-model="timeSet.time" value="a" name="time"/>
+                        <label>0,4 s</label></section>
+                    <section class="checkAndLabel"><input type="radio" ng-model="timeSet.time" value="b" name="time"/>
+                        <label>0,8 s</label></section>
+                    <section class="checkAndLabel"><input type="radio" ng-model="timeSet.time" value="c" name="time"/>
+                        <label>1,2 s</label></section>
+                    <section class="checkAndLabel"><input type="radio" ng-model="timeSet.time" value="d" name="time"/>
+                        <label>1,6 s</label></section>
+                    <section class="checkAndLabel"><input type="radio" ng-model="timeSet.time" value="e" name="time"/>
+                        <label>2,0 s</label></section>
+                    </br style="clear: both"/>
                 </form>
 
             </div>
@@ -77,17 +102,18 @@
             <table>
                 <tr ng-repeat="row in field track by $index">
                     <td ng-repeat="cell in row track by $index" ng-class="{lifeCell: (cell==1), deadCell: (cell==0)}">
-                         {{$parent.$index}}.{{$index}}.   {{cell}}
+                        {{$parent.$index}}.{{$index}}. {{cell}}
                     </td>
                 </tr>
             </table>
 
 
-
-
         </div>
-        <div id="stats" >
-
+        <div id="stats">
+            <div class="statistic">Generation: {{generation}}</div>
+            <div class="statistic">Living cells: {{livingCells}}</div>
+            <div class="statistic">Best generation: {{bestGen}} ({{bestLiv}} living cells)</div>
+            </br style="clear: both"/>
         </div>
     </div>
     <footer>
