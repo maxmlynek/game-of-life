@@ -89,8 +89,7 @@ function GameOfLifeController($scope, $interval) {
 
                     var lifeCounter = 0;
                     $scope.generation++;
-
-                    validateArrays()//for every iteration!
+                    
                     var i, j;
                     for (i = 0; i < countingArray.length; i++) {
                         for (j = 0; j < countingArray[0].length; j++) {

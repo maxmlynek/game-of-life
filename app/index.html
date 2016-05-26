@@ -102,7 +102,7 @@
             <table>
                 <tr ng-repeat="row in field track by $index">
                     <td ng-repeat="cell in row track by $index" ng-class="{lifeCell: (cell==1), deadCell: (cell==0)}">
-                        {{$parent.$index}}.{{$index}}. {{cell}}
+                        {{$parent.$index}}.{{$index}}
                     </td>
                 </tr>
             </table>
