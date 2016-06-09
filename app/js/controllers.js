@@ -120,6 +120,10 @@ function GameOfLifeController($scope, $interval) {
                         $scope.bestGen = $scope.generation;
                     }
                     $scope.formerLifeCounter = lifeCounter;
+                    if(lifeCounter==0) {
+                        $scope.isPaused=true;
+                        $scope.livingCells = 0;
+                    }
                 }
 
 
